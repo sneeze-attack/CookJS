@@ -2,8 +2,8 @@ import Phaser from 'phaser';
 import BootScene from './scenes/BootScene';
 import StartMenuScene from './scenes/StartMenuScene';
 import GameScene from './scenes/GameScene';
-import UIScene from './scenes/UIScene';
 import GameState from './modules/GameState';
+import Inventory from './modules/Inventory';
 
 export const config = {
   title: 'CookJS',
@@ -12,17 +12,17 @@ export const config = {
     mode: Phaser.Scale.FIT,
     parent: 'phaser-example',
     width: 1366,
-    height: 768
+    height: 768,
   },
   scene: [
     BootScene,
     GameScene,
     StartMenuScene,
-    UIScene
   ],
 };
 
 const game = new Phaser.Game(config);
 game.gameState = new GameState();
+game.inventory = new Inventory();
 
 export default game;

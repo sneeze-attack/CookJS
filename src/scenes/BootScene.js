@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import game from '../index';
 import cuisineImg from '../assets/backgrounds/italian-cuisine-2378729_1366.jpg';
+import paperImg from '../assets/backgrounds/paper-1074131_1366.jpg';
 
 export default class BootScene extends Phaser.Scene {
   constructor() {
@@ -9,6 +10,7 @@ export default class BootScene extends Phaser.Scene {
 
   preload() {
     this.load.image('cuisineBackground', cuisineImg);
+    this.load.image('paperBackground', paperImg);
   }
 
   create() {
