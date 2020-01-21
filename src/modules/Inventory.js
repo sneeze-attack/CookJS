@@ -23,8 +23,8 @@ export default class Inventory {
       remainingGallons = `${gallons} gallons, `;
     }
     // quart conversion
-    let remainder = number % 768;
-    let quarts = Math.floor(remainder / 192);
+    const remainder = number % 768;
+    const quarts = Math.floor(remainder / 192);
     let remainingQuarts;
     if (quarts === 0) {
       remainingQuarts = '';
@@ -34,24 +34,24 @@ export default class Inventory {
       remainingQuarts = `${quarts} quarts, `;
     }
     // pint conversion
-    let quartRemainder = remainder % 192;
-    let pints = Math.floor(quartRemainder / 96);
+    const quartRemainder = remainder % 192;
+    const pints = Math.floor(quartRemainder / 96);
     let remainingPints = '';
     if (pints !== 0) {
       remainingPints = `${pints} pint, `;
     }
 
     // cup conversion
-    let pintRemainder = quartRemainder % 96;
-    let cups = Math.floor(pintRemainder / 48);
+    const pintRemainder = quartRemainder % 96;
+    const cups = Math.floor(pintRemainder / 48);
     let remainingCups = '';
     if (cups !== 0) {
       remainingCups = `${cups} cup, `;
     }
 
     // tablespoon conversion
-    let cupRemainder = pintRemainder % 48;
-    let tablespoons = Math.floor(cupRemainder / 3);
+    const cupRemainder = pintRemainder % 48;
+    const tablespoons = Math.floor(cupRemainder / 3);
     let remainingTablespoons;
     if (tablespoons === 0) {
       remainingTablespoons = '';
@@ -60,12 +60,12 @@ export default class Inventory {
     }
 
     // teaspoon conversion
-    let teaspoons = cupRemainder % 3;
+    const teaspoons = cupRemainder % 3;
     let remainingTeaspoons;
     if (teaspoons === 0) {
       remainingTeaspoons = '';
     } else {
-      remainingTeaspoons = `${teaspoons} tsp`
+      remainingTeaspoons = `${teaspoons} tsp`;
     }
 
     return remainingGallons + remainingQuarts + remainingPints + remainingCups + remainingTablespoons + remainingTeaspoons;
