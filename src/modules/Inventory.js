@@ -16,6 +16,17 @@ export default class Inventory {
     // salt is about 80 tsp per lb
     this.salt = 0;
     this.oil = 0;
+
+    this.ingredientList = [];
+  }
+
+  addIngredient(ingredient, number) {
+    this[ingredient] += number;
+    const index = this.ingredientList.findIndex(x => x === ingredient);
+    // if ingredient does not already exist in list, add it
+    if (index === -1) {
+      this.ingredientList.push(ingredient);
+    }
   }
 
   convert(number) {
