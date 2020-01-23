@@ -9,11 +9,13 @@ export default class Inventory {
 
     // Start with a pound of flour which is about 3 1/2 cups (168tsp)
     this.flour = 0;
-    // add remaining bread ingredients for first recipe
-    this.sugar = 10;
-    this.yeast = 10;
-    this.salt = 10;
-    this.oil = 10;
+    // sugar is about 96 tsp per lb --- 96 tsp = 2 cups
+    this.sugar = 0;
+    // yeast is about 160 tsp per lb
+    this.yeast = 0;
+    // salt is about 80 tsp per lb
+    this.salt = 0;
+    this.oil = 0;
   }
 
   convert(number) {
@@ -45,7 +47,6 @@ export default class Inventory {
     if (pints !== 0) {
       remainingPints = `${pints} pint, `;
     }
-
     // cup conversion
     const pintRemainder = quartRemainder % 96;
     const cups = Math.floor(pintRemainder / 48);
@@ -53,7 +54,6 @@ export default class Inventory {
     if (cups !== 0) {
       remainingCups = `${cups} cup, `;
     }
-
     // tablespoon conversion
     const cupRemainder = pintRemainder % 48;
     const tablespoons = Math.floor(cupRemainder / 3);
@@ -63,7 +63,6 @@ export default class Inventory {
     } else {
       remainingTablespoons = `${tablespoons} Tbsp, `;
     }
-
     // teaspoon conversion
     const teaspoons = cupRemainder % 3;
     let remainingTeaspoons;
@@ -72,7 +71,6 @@ export default class Inventory {
     } else {
       remainingTeaspoons = `${teaspoons} tsp`;
     }
-
     return remainingGallons + remainingQuarts + remainingPints + remainingCups + remainingTablespoons + remainingTeaspoons;
   }
 }
