@@ -22,11 +22,12 @@ export default class Inventory {
 
   addIngredient(ingredient, number) {
     this[ingredient] += number;
-    const index = this.ingredientList.findIndex(x => x === ingredient);
+    const index = this.ingredientList.findIndex((x) => x === ingredient);
     // if ingredient does not already exist in list, add it
     if (index === -1) {
       this.ingredientList.push(ingredient);
     }
+    //console.log(this.ingredientList);
   }
 
   convert(number) {
