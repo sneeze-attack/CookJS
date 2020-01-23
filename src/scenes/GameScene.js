@@ -20,7 +20,7 @@ export default class GameScene extends Phaser.Scene {
         // capitalize name of ingredient
         const ingredientCapitalized = ingredient.charAt(0).toUpperCase() + ingredient.slice(1);
         // add blank space to align with longest ingredient name
-        let spacer = ''
+        let spacer = '';
         const l = ingredient.length;
         // MODIFY THIS MANUALLY FOR NOW, ADJUST WHEN NEW INGREDIENTS ARE ADDED
         const longestIngredientLength = 5;
