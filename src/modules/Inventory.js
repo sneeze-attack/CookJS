@@ -27,7 +27,7 @@ export default class Inventory {
     if (index === -1) {
       this.ingredientList.push(ingredient);
     }
-    //console.log(this.ingredientList);
+    // console.log(this.ingredientList);
   }
 
   convert(number) {
