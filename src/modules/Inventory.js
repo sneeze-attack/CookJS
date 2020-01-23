@@ -8,12 +8,12 @@ export default class Inventory {
     // We will convert() up to other units everywhere else for display / UI
 
     // Start with a pound of flour which is about 3 1/2 cups (168tsp)
-    this.flour = 168;
+    this.flour = 0;
     // add remaining bread ingredients for first recipe
-    this.sugar = 100;
-    this.yeast = 30;
-    this.salt = 75;
-    this.oil = 50;
+    this.sugar = 10;
+    this.yeast = 10;
+    this.salt = 10;
+    this.oil = 10;
   }
 
   convert(number) {
