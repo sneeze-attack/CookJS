@@ -39,7 +39,7 @@ export default class GameScene extends Phaser.Scene {
           }
         }
         // update ingredient text to show new amount held
-        ui[ingredient + 'Held'].setText(`${ingredientCapitalized}:${spacer} ${game.inventory.convert(`${game.inventory[ingredient]}`)}`);
+        ui[`${ingredient}Held`].setText(`${ingredientCapitalized}:${spacer} ${game.inventory.convert(`${game.inventory[ingredient]}`)}`);
         game.inventory.dollars -= price;
         // subtracting repeatedly, .000000001 remainder - use 'toFixed(2)'
         const rounded = game.inventory.dollars.toFixed(2);
@@ -50,10 +50,10 @@ export default class GameScene extends Phaser.Scene {
     // Sets up functionality for each ingredient in iData
     // On existing Button and Text click, purchase ingredients
     Object.keys(iData).forEach((key) => {
-      ui['buy' + key].on('pointerup', () => {
+      ui[`buy${key}`].on('pointerup', () => {
         buy(key, iData[key].price, iData[key].amount);
       });
-      ui['buy' + key + 'Text'].on('pointerup', () => {
+      ui[`buy${key}Text`].on('pointerup', () => {
         buy(key, iData[key].price, iData[key].amount);
       });
     });
