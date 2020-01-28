@@ -45,40 +45,40 @@ export default class GameScene extends Phaser.Scene {
       }
     }
 
-    // Add 5 lb and reduce cash held by $2.99 on click
-    ui.buyFlour.on('pointerup', () => {
-      buy('flour', 2.99, 840);
-    });
-    ui.buyFlourText.on('pointerup', () => {
-      buy('flour', 2.99, 840);
-    });
-    // Add 4 lb and reduce cash held by $2.99 on click
-    ui.buySugar.on('pointerup', () => {
-      buy('sugar', 2.99, 384);
-    });
-    ui.buySugarText.on('pointerup', () => {
-      buy('sugar', 2.99, 384);
-    });
-    // Add 1 lb and reduce cash held by $13.99 on click
-    ui.buyYeast.on('pointerup', () => {
-      buy('yeast', 13.99, 160);
-    });
-    ui.buyYeastText.on('pointerup', () => {
-      buy('yeast', 13.99, 160);
-    });
-    // Add 3 lb and reduce cash held by $3.69 on click
-    ui.buySalt.on('pointerup', () => {
-      buy('salt', 3.69, 240);
-    });
-    ui.buySaltText.on('pointerup', () => {
-      buy('salt', 3.69, 240);
-    });
-    // Add 1 gallon and reduce cash held by $4.59 on click
-    ui.buyOil.on('pointerup', () => {
-      buy('oil', 4.59, 768);
-    });
-    ui.buyOilText.on('pointerup', () => {
-      buy('oil', 4.59, 768);
-    });
+    const iBuyList = {
+      ingredient: {
+        flour: {
+          price: 2.99,
+          amount: 840, // Add 5 lb
+        },
+        sugar: {
+          price: 2.99,
+          amount: 384, // Add 4 lb
+        },
+        yeast: {
+          price: 13.99,
+          amount: 160, // Add 1 lb
+        },
+        salt: {
+          price: 3.69,
+          amount: 240, // Add 3 lb
+        },
+        oil: {
+          price: 4.59,
+          amount: 768, // Add 1 gallon
+        },
+      },
+    };
+
+    // Sets up functionality for each ingredient in iBuyList
+    // On existing Button and Text click, purchase ingredients
+    for (let iName in iBuyList.ingredient) {
+      ui['buy' + iName].on('pointerup', () => {
+        buy(iName, iBuyList.ingredient[iName].price, iBuyList.ingredient[iName].amount);
+      });
+      ui['buy' + iName + 'Text'].on('pointerup', () => {
+        buy(iName, iBuyList.ingredient[iName].price, iBuyList.ingredient[iName].amount);
+      });
+    }
   }
 }

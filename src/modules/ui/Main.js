@@ -32,16 +32,16 @@ export default class Main extends Phaser.GameObjects.Group {
     const cashHeld = scene.add.text(((config.scale.width * 8) / 128), ((config.scale.height * 116) / 128), `Cash: $${game.inventory.dollars}`).setColor('#000000').setInteractive().setFontSize(32).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
     super();
 
-    this.buyFlour = buyFlour;
-    this.buyFlourText = buyFlourText;
-    this.buySugar = buySugar;
-    this.buySugarText = buySugarText;
-    this.buyYeast = buyYeast;
-    this.buyYeastText = buyYeastText;
-    this.buySalt = buySalt;
-    this.buySaltText = buySaltText;
-    this.buyOil = buyOil;
-    this.buyOilText = buyOilText;
+    this.buyflour = buyFlour;
+    this.buyflourText = buyFlourText;
+    this.buysugar = buySugar;
+    this.buysugarText = buySugarText;
+    this.buyyeast = buyYeast;
+    this.buyyeastText = buyYeastText;
+    this.buysalt = buySalt;
+    this.buysaltText = buySaltText;
+    this.buyoil = buyOil;
+    this.buyoilText = buyOilText;
     this.oilHeld = oilHeld;
     this.flourHeld = flourHeld;
     this.cashHeld = cashHeld;
