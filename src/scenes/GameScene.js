@@ -49,7 +49,7 @@ export default class GameScene extends Phaser.Scene {
 
     // Sets up functionality for each ingredient in iData
     // On existing Button and Text click, purchase ingredients
-    Object.keys(iData).forEach(function(key) {
+    Object.keys(iData).forEach((key) => {
       ui['buy' + key].on('pointerup', () => {
         buy(key, iData[key].price, iData[key].amount);
       });
