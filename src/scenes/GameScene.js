@@ -13,6 +13,8 @@ export default class GameScene extends Phaser.Scene {
 
     // use object to set up UI
     const ui = new Main(this);
+    // assign json ingredient price data to variable
+    const iData = this.cache.json.get('ingredientData');
 
     function buy(ingredient, price, tsp) {
       if (game.inventory.dollars > price) {
@@ -45,39 +47,14 @@ export default class GameScene extends Phaser.Scene {
       }
     }
 
-    const iBuyList = {
-      ingredient: {
-        flour: {
-          price: 2.99,
-          amount: 840, // Add 5 lb
-        },
-        sugar: {
-          price: 2.99,
-          amount: 384, // Add 4 lb
-        },
-        yeast: {
-          price: 13.99,
-          amount: 160, // Add 1 lb
-        },
-        salt: {
-          price: 3.69,
-          amount: 240, // Add 3 lb
-        },
-        oil: {
-          price: 4.59,
-          amount: 768, // Add 1 gallon
-        },
-      },
-    };
-
-    // Sets up functionality for each ingredient in iBuyList
+    // Sets up functionality for each ingredient in iData
     // On existing Button and Text click, purchase ingredients
-    for (let iName in iBuyList.ingredient) {
-      ui['buy' + iName].on('pointerup', () => {
-        buy(iName, iBuyList.ingredient[iName].price, iBuyList.ingredient[iName].amount);
+    for (let key in iData) {
+      ui['buy' + key].on('pointerup', () => {
+        buy(key, iData[key].price, iData[key].amount);
       });
-      ui['buy' + iName + 'Text'].on('pointerup', () => {
-        buy(iName, iBuyList.ingredient[iName].price, iBuyList.ingredient[iName].amount);
+      ui['buy' + key + 'Text'].on('pointerup', () => {
+        buy(key, iData[key].price, iData[key].amount);
       });
     }
   }

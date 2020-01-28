@@ -1,0 +1,22 @@
+{
+  "flour": {
+    "price": 2.99,
+    "amount": 840
+  },
+  "sugar": {
+    "price": 2.99,
+    "amount": 384
+  },
+  "yeast": {
+    "price": 13.99,
+    "amount": 160
+  },
+  "salt": {
+    "price": 3.69,
+    "amount": 240
+  },
+  "oil": {
+    "price": 4.59,
+    "amount": 768
+  }
+}
