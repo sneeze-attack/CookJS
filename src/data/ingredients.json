@@ -1,22 +1,27 @@
 {
   "flour": {
     "price": 2.99,
-    "amount": 840
+    "amount": 840,
+    "amountText": "5 lbs"
   },
   "sugar": {
     "price": 2.99,
-    "amount": 384
+    "amount": 384,
+    "amountText": "4 lbs"
   },
   "yeast": {
     "price": 13.99,
-    "amount": 160
+    "amount": 160,
+    "amountText": "lb"
   },
   "salt": {
     "price": 3.69,
-    "amount": 240
+    "amount": 240,
+    "amountText": "3 lbs"
   },
   "oil": {
     "price": 4.59,
-    "amount": 768
+    "amount": 768,
+    "amountText": "gallon"
   }
 }

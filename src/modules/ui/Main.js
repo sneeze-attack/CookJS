@@ -1,6 +1,7 @@
 /* global Phaser
 no-undef: off */
 import game, { config } from '../../index';
+import jsonData from '../../data/ingredients.json';
 
 export default class Main extends Phaser.GameObjects.Group {
   // Intended for use only in GameScene
@@ -9,20 +10,16 @@ export default class Main extends Phaser.GameObjects.Group {
     scene.add.image(0, 0, 'paperBackground').setOrigin(0, 0);
 
     // create purchase buttons and their text
-    const buyFlour = scene.add.rectangle(((config.scale.width * 89) / 128), ((config.scale.height * 12) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(1);
-    const buyFlourText = scene.add.text(((config.scale.width * 90) / 128), ((config.scale.height * 13) / 128), 'Buy Flour $2.99 / 5 lbs').setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
-
-    const buySugar = scene.add.rectangle(((config.scale.width * 89) / 128), ((config.scale.height * 24) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(1);
-    const buySugarText = scene.add.text(((config.scale.width * 90) / 128), ((config.scale.height * 25) / 128), 'Buy Sugar $2.99 / 4 lbs').setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
-
-    const buyYeast = scene.add.rectangle(((config.scale.width * 89) / 128), ((config.scale.height * 36) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(1);
-    const buyYeastText = scene.add.text(((config.scale.width * 90) / 128), ((config.scale.height * 37) / 128), 'Buy Yeast $13.99 / lb').setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
-
-    const buySalt = scene.add.rectangle(((config.scale.width * 89) / 128), ((config.scale.height * 48) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(1);
-    const buySaltText = scene.add.text(((config.scale.width * 90) / 128), ((config.scale.height * 49) / 128), 'Buy Salt $3.69 / 3 lbs').setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
-
-    const buyOil = scene.add.rectangle(((config.scale.width * 89) / 128), ((config.scale.height * 60) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(1);
-    const buyOilText = scene.add.text(((config.scale.width * 90) / 128), ((config.scale.height * 61) / 128), 'Buy Oil $4.59 / gallon').setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
+    let heightCoord = 12;
+    let textHeightCoord = 13;
+    Object.keys(jsonData).forEach((key) => {
+      const tempName = `buy${key}`;
+      const tempTextName = `buy${key}Text`;
+      window[tempName] = scene.add.rectangle(((config.scale.width * 89) / 128), ((config.scale.height * heightCoord) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(1);
+      window[tempTextName] = scene.add.text(((config.scale.width * 90) / 128), ((config.scale.height * textHeightCoord) / 128), `Buy ${key} ${jsonData[key].price} / ${jsonData[key].amountText}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
+      heightCoord += 12;
+      textHeightCoord += 12;
+    });
 
     // display inventory
     const oilHeld = scene.add.text(((config.scale.width * 8) / 128), ((config.scale.height * 90) / 128), `Oil:   ${game.inventory.convert(`${game.inventory.oil}`)}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
@@ -52,16 +49,16 @@ export default class Main extends Phaser.GameObjects.Group {
 
     super();
 
-    this.buyflour = buyFlour;
-    this.buyflourText = buyFlourText;
-    this.buysugar = buySugar;
-    this.buysugarText = buySugarText;
-    this.buyyeast = buyYeast;
-    this.buyyeastText = buyYeastText;
-    this.buysalt = buySalt;
-    this.buysaltText = buySaltText;
-    this.buyoil = buyOil;
-    this.buyoilText = buyOilText;
+    this.buyflour = buyflour;
+    this.buyflourText = buyflourText;
+    this.buysugar = buysugar;
+    this.buysugarText = buysugarText;
+    this.buyyeast = buyyeast;
+    this.buyyeastText = buyyeastText;
+    this.buysalt = buysalt;
+    this.buysaltText = buysaltText;
+    this.buyoil = buyoil;
+    this.buyoilText = buyoilText;
     this.oilHeld = oilHeld;
     this.flourHeld = flourHeld;
     this.cashHeld = cashHeld;
