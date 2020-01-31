@@ -46,25 +46,17 @@ export default class Main extends Phaser.GameObjects.Group {
     }
     const hour = scene.add.text(((config.scale.width * 108) / 128), ((config.scale.height * 122) / 128), `Time: ${convertedTimeHour}:${convertedTimeMinutes}`).setColor('#000000').setInteractive().setFontSize(32).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
 
-
     super();
 
-    this.buyflour = buyflour;
-    this.buyflourText = buyflourText;
-    this.buysugar = buysugar;
-    this.buysugarText = buysugarText;
-    this.buyyeast = buyyeast;
-    this.buyyeastText = buyyeastText;
-    this.buysalt = buysalt;
-    this.buysaltText = buysaltText;
-    this.buyoil = buyoil;
-    this.buyoilText = buyoilText;
-    this.oilHeld = oilHeld;
-    this.flourHeld = flourHeld;
+    Object.keys(jsonData).forEach((key) => {
+      const tempName = `buy${key}`;
+      const tempTextName = `buy${key}Text`;
+      const tempHeld = `${key}Held`;
+      this[`${tempName}`] = eval(tempName);
+      this[`${tempTextName}`] = eval(tempTextName);
+      this[`${tempHeld}`] = eval(tempHeld);
+    });
     this.cashHeld = cashHeld;
-    this.sugarHeld = sugarHeld;
-    this.yeastHeld = yeastHeld;
-    this.saltHeld = saltHeld;
     this.day = day;
     this.hour = hour;
   }
