@@ -13,6 +13,13 @@ export default class Main extends Phaser.GameObjects.Group {
     let heightCoord = 12;
     let textHeightCoord = 13;
     let heldCoord = 90;
+    // Get length of longest ingredient
+    let longestIngredientLength = 0;
+    Object.keys(jsonData).forEach((key) => {
+      if (longestIngredientLength < key.length) {
+        longestIngredientLength = key.length;
+      }
+    });
     Object.keys(jsonData).forEach((key) => {
       const tempName = `buy${key}`;
       const tempTextName = `buy${key}Text`;
@@ -22,11 +29,9 @@ export default class Main extends Phaser.GameObjects.Group {
       // Add spacing for ingredients/inventory
       let spacer = '';
       const l = key.length;
-      // TODO
-      // MODIFY THIS MANUALLY FOR NOW, ADJUST WHEN NEW INGREDIENTS ARE ADDED
-      const longestIngredientLength = 5;
       if (l < longestIngredientLength) {
         const d = longestIngredientLength - l;
+        // TODO - refactor to add spaces equal to variable d
         if (d === 1) {
           spacer = ' ';
         } else if (d === 2) {
