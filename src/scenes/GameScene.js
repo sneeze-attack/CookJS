@@ -15,6 +15,13 @@ export default class GameScene extends Phaser.Scene {
     const ui = new Main(this);
     // assign json ingredient price data to variable
     const iData = this.cache.json.get('ingredientData');
+    // Get length of longest ingredient
+    let longestIngredientLength = 0;
+    Object.keys(iData).forEach((key) => {
+      if (longestIngredientLength < key.length) {
+        longestIngredientLength = key.length;
+      }
+    });
 
     function buy(ingredient, price, tsp) {
       if (game.inventory.dollars > price) {
@@ -24,11 +31,9 @@ export default class GameScene extends Phaser.Scene {
         // add blank space to align with longest ingredient name
         let spacer = '';
         const l = ingredient.length;
-        // TODO
-        // MODIFY THIS MANUALLY FOR NOW, ADJUST WHEN NEW INGREDIENTS ARE ADDED
-        const longestIngredientLength = 5;
         if (l < longestIngredientLength) {
           const d = longestIngredientLength - l;
+          // TODO - refactor to add spaces equal to variable d
           if (d === 1) {
             spacer = ' ';
           } else if (d === 2) {
