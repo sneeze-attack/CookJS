@@ -7,6 +7,7 @@ export default class Inventory {
     // of volume in English units
     // We will convert() up to other units everywhere else for display / UI
 
+    // TODO - Construct from existing json data instead
     // Start with a pound of flour which is about 3 1/2 cups (168tsp)
     this.flour = 0;
     // sugar is about 96 tsp per lb --- 96 tsp = 2 cups
@@ -83,6 +84,7 @@ export default class Inventory {
     } else {
       remainingTeaspoons = `${teaspoons} tsp`;
     }
+    // TODO - remove trailing comma if there is one
     return remainingGallons + remainingQuarts + remainingPints + remainingCups + remainingTablespoons + remainingTeaspoons;
   }
 }
