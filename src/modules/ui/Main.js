@@ -19,11 +19,29 @@ export default class Main extends Phaser.GameObjects.Group {
       const heldName = `${key}Held`;
       // Capitalize first letter of ingredient
       const ingredientCapitalized = key.charAt(0).toUpperCase() + key.slice(1);
+      // Add spacing for ingredients/inventory
+      let spacer = '';
+      const l = key.length;
+      // TODO
+      // MODIFY THIS MANUALLY FOR NOW, ADJUST WHEN NEW INGREDIENTS ARE ADDED
+      const longestIngredientLength = 5;
+      if (l < longestIngredientLength) {
+        const d = longestIngredientLength - l;
+        if (d === 1) {
+          spacer = ' ';
+        } else if (d === 2) {
+          spacer = '  ';
+        } else if (d === 3) {
+          spacer = '   ';
+        } else {
+          spacer = '    ';
+        }
+      }
       // creates buttons and text in upper right
       window[tempName] = scene.add.rectangle(((config.scale.width * 89) / 128), ((config.scale.height * heightCoord) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(1);
       window[tempTextName] = scene.add.text(((config.scale.width * 90) / 128), ((config.scale.height * textHeightCoord) / 128), `Buy ${key} ${jsonData[key].price} / ${jsonData[key].amountText}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
       // this creates inventory in bottom left
-      window[heldName] = scene.add.text(((config.scale.width * 8) / 128), ((config.scale.height * heldCoord) / 128), `${ingredientCapitalized}: ${game.inventory.convert(`${game.inventory[key]}`)}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
+      window[heldName] = scene.add.text(((config.scale.width * 8) / 128), ((config.scale.height * heldCoord) / 128), `${ingredientCapitalized}:${spacer} ${game.inventory.convert(`${game.inventory[key]}`)}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
       heightCoord += 12;
       textHeightCoord += 12;
       heldCoord += 5;

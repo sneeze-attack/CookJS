@@ -24,6 +24,7 @@ export default class GameScene extends Phaser.Scene {
         // add blank space to align with longest ingredient name
         let spacer = '';
         const l = ingredient.length;
+        // TODO
         // MODIFY THIS MANUALLY FOR NOW, ADJUST WHEN NEW INGREDIENTS ARE ADDED
         const longestIngredientLength = 5;
         if (l < longestIngredientLength) {
