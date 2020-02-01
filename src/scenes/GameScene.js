@@ -8,9 +8,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    // shortcut
-    this.config = this.sys.game.config;
-
     // use object to set up UI
     const ui = new Main(this);
     // assign json ingredient price data to variable
