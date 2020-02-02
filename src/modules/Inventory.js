@@ -85,7 +85,9 @@ export default class Inventory {
     } else {
       remainingTeaspoons = `${teaspoons} tsp`;
     }
-    // TODO - remove trailing comma if there is one
-    return remainingGallons + remainingQuarts + remainingPints + remainingCups + remainingTablespoons + remainingTeaspoons;
+    let output = remainingGallons + remainingQuarts + remainingPints + remainingCups + remainingTablespoons + remainingTeaspoons;
+    // Remove trailing comma if there is one
+    output = output.replace(/,\s*$/, '');
+    return output;
   }
 }
