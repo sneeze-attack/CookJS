@@ -2,7 +2,7 @@ export default class GameState {
   constructor() {
     this.nextScene = 'StartScene';
     this.previousScene = null;
-    this.hour = 8; // start at 8am, use 24h clock
+    this.hour = 6; // start at 6am, use 24h clock
     this.day = 1;
   }
 
