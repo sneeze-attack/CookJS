@@ -30,16 +30,8 @@ export default class Main extends Phaser.GameObjects.Group {
       let spacer = '';
       const l = key.length;
       if (l < longestIngredientLength) {
-        const d = longestIngredientLength - l;
-        // TODO - refactor to add spaces equal to variable d
-        if (d === 1) {
-          spacer = ' ';
-        } else if (d === 2) {
-          spacer = '  ';
-        } else if (d === 3) {
-          spacer = '   ';
-        } else {
-          spacer = '    ';
+        for (let d = longestIngredientLength - l; d > 0; d -= 1) {
+          spacer = spacer.concat(' ');
         }
       }
       // creates buttons and text in upper right

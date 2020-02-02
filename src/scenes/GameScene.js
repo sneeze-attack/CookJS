@@ -29,16 +29,8 @@ export default class GameScene extends Phaser.Scene {
         let spacer = '';
         const l = ingredient.length;
         if (l < longestIngredientLength) {
-          const d = longestIngredientLength - l;
-          // TODO - refactor to add spaces equal to variable d
-          if (d === 1) {
-            spacer = ' ';
-          } else if (d === 2) {
-            spacer = '  ';
-          } else if (d === 3) {
-            spacer = '   ';
-          } else {
-            spacer = '    ';
+          for (let d = longestIngredientLength - l; d > 0; d -= 1) {
+            spacer = spacer.concat(' ');
           }
         }
         // update ingredient text to show new amount held
