@@ -52,5 +52,10 @@ export default class GameScene extends Phaser.Scene {
         buy(key, iData[key].price, iData[key].amount);
       });
     });
+
+    // Set up oven click functionality
+    ui.oven.on('pointerup', () => {
+      console.log('test');
+    });
   }
 }

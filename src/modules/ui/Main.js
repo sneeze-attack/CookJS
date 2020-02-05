@@ -9,6 +9,9 @@ export default class Main extends Phaser.GameObjects.Group {
     // add background
     scene.add.image(0, 0, 'paperBackground').setOrigin(0, 0);
 
+    // create oven
+    const oven = scene.add.sprite(((config.scale.width * 3) / 128), ((config.scale.height * 4) / 128), 'ovenIcon').setOrigin(0, 0).setInteractive();
+
     // create purchase buttons and their text, create inventory display
     let heightCoord = 12;
     let textHeightCoord = 13;
@@ -75,5 +78,6 @@ export default class Main extends Phaser.GameObjects.Group {
     this.cashHeld = cashHeld;
     this.day = day;
     this.hour = hour;
+    this.oven = oven;
   }
 }
