@@ -1,19 +1,21 @@
 {
-  "bread": {
-    "flour": {
-      "amount": 324
-    },
-    "sugar": {
-      "amount": 10
-    },
-    "yeast": {
-      "amount": 3
-    },
-    "salt": {
-      "amount": 3
-    },
-    "oil": {
-      "amount": 6
+  "breadloaf": {
+    "ingredients": {
+      "flour": {
+        "amount": 324
+      },
+      "sugar": {
+        "amount": 10
+      },
+      "yeast": {
+        "amount": 3
+      },
+      "salt": {
+        "amount": 3
+      },
+      "oil": {
+        "amount": 6
+      }
     },
     "amount": 2
   }
