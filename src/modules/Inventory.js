@@ -1,4 +1,5 @@
 import jsonData from '../data/ingredients.json';
+import recipeData from '../data/recipes.json';
 
 export default class Inventory {
   constructor() {
@@ -9,10 +10,17 @@ export default class Inventory {
     // of volume in English units
     // We will convert() up to other units everywhere else for display / UI
 
+    // set up inventory for holding each ingredient
     Object.keys(jsonData).forEach((key) => {
       // inventory starts at 0
       this[`${key}`] = 0;
     });
+
+    // set up inventory for holding each product from recipe list
+    Object.keys(recipeData).forEach((key) => {
+      this[`${key}`] = 0;
+    })
+
     // notes on ingredient weights:
     // a pound of flour = 3 1/2 cups (168tsp)
     // sugar is about 96 tsp per lb --- 96 tsp = 2 cups
