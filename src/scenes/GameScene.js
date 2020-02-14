@@ -55,7 +55,14 @@ export default class GameScene extends Phaser.Scene {
 
     // Set up oven click functionality
     ui.oven.on('pointerup', () => {
-      console.log('test');
+      ui.menuShadeBox.setDepth(2);
+      ui.menuBoxBorder.setDepth(2);
+      ui.menuBox.setDepth(3);
     });
+    ui.menuShadeBox.on('pointerup', () => {
+      ui.menuShadeBox.setDepth(0);
+      ui.menuBoxBorder.setDepth(0);
+      ui.menuBox.setDepth(0);
+    })
   }
 }

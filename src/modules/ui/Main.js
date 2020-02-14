@@ -7,10 +7,17 @@ export default class Main extends Phaser.GameObjects.Group {
   // Intended for use only in GameScene
   constructor(scene) {
     // add background
-    scene.add.image(0, 0, 'paperBackground').setOrigin(0, 0);
+    scene.add.image(0, 0, 'paperBackground').setOrigin(0, 0).setDepth(1);
 
     // create oven
-    const oven = scene.add.sprite(((config.scale.width * 3) / 128), ((config.scale.height * 4) / 128), 'ovenIcon').setOrigin(0, 0).setInteractive();
+    const oven = scene.add.sprite(((config.scale.width * 3) / 128), ((config.scale.height * 4) / 128), 'ovenIcon').setOrigin(0, 0).setInteractive().setDepth(1);
+
+    // cooking menu
+    // add gray shade to entire screen
+    const menuShadeBox = scene.add.rectangle(0, 0, config.scale.width, config.scale.height, 0x000000).setOrigin(0, 0).setDepth(0).setAlpha(0.5).setInteractive();
+    // add bordered results box
+    const menuBoxBorder = scene.add.rectangle(((config.scale.width * 30) / 128), ((config.scale.height * 14) / 128), ((config.scale.width * 68) / 128), ((config.scale.height * 98) / 128), 0xFFFFFF).setOrigin(0, 0).setDepth(0).setInteractive();
+    const menuBox = scene.add.rectangle(((config.scale.width * 30.25) / 128), ((config.scale.height * 14.5) / 128), ((config.scale.width * 67.5) / 128), ((config.scale.height * 97) / 128), 0x000000).setOrigin(0, 0).setDepth(0).setInteractive();
 
     // create purchase buttons and their text, create inventory display
     let heightCoord = 12;
@@ -79,5 +86,8 @@ export default class Main extends Phaser.GameObjects.Group {
     this.day = day;
     this.hour = hour;
     this.oven = oven;
+    this.menuShadeBox = menuShadeBox;
+    this.menuBoxBorder = menuBoxBorder;
+    this.menuBox = menuBox;
   }
 }
