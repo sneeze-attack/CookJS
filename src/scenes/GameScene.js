@@ -63,6 +63,6 @@ export default class GameScene extends Phaser.Scene {
       ui.menuShadeBox.setDepth(0);
       ui.menuBoxBorder.setDepth(0);
       ui.menuBox.setDepth(0);
-    })
+    });
   }
 }
