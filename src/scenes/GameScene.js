@@ -10,8 +10,9 @@ export default class GameScene extends Phaser.Scene {
   create() {
     // use object to set up UI
     const ui = new Main(this);
-    // assign json ingredient price data to variable
+    // assign json data to variables
     const iData = this.cache.json.get('ingredientData');
+    const rData = this.cache.json.get('recipeData');
     // Get length of longest ingredient
     let longestIngredientLength = 0;
     Object.keys(iData).forEach((key) => {
@@ -58,11 +59,19 @@ export default class GameScene extends Phaser.Scene {
       ui.menuShadeBox.setDepth(2);
       ui.menuBoxBorder.setDepth(2);
       ui.menuBox.setDepth(3);
+      Object.keys(rData).forEach((key) => {
+        ui[`${key}RecipeButton`].setDepth(4);
+        ui[`${key}RecipeButtonText`].setDepth(4);
+      });
     });
     ui.menuShadeBox.on('pointerup', () => {
       ui.menuShadeBox.setDepth(0);
       ui.menuBoxBorder.setDepth(0);
       ui.menuBox.setDepth(0);
+      Object.keys(rData).forEach((key) => {
+        ui[`${key}RecipeButton`].setDepth(0);
+        ui[`${key}RecipeButtonText`].setDepth(0);
+      });
     });
   }
 }

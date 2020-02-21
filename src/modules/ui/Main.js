@@ -2,6 +2,7 @@
 no-undef: off */
 import game, { config } from '../../index';
 import jsonData from '../../data/ingredients.json';
+import recipeData from '../../data/recipes.json';
 
 export default class Main extends Phaser.GameObjects.Group {
   // Intended for use only in GameScene
@@ -18,6 +19,17 @@ export default class Main extends Phaser.GameObjects.Group {
     // add bordered results box
     const menuBoxBorder = scene.add.rectangle(((config.scale.width * 30) / 128), ((config.scale.height * 14) / 128), ((config.scale.width * 68) / 128), ((config.scale.height * 98) / 128), 0xFFFFFF).setOrigin(0, 0).setDepth(0).setInteractive();
     const menuBox = scene.add.rectangle(((config.scale.width * 30.25) / 128), ((config.scale.height * 14.5) / 128), ((config.scale.width * 67.5) / 128), ((config.scale.height * 97) / 128), 0x000000).setOrigin(0, 0).setDepth(0).setInteractive();
+    // Show available recipes
+    let recipeHeightCoord = 12;
+    let recipeTextHeightCoord = 13;
+    Object.keys(recipeData).forEach((key) => {
+      console.log(key); // breadloaf
+      const tempName = `${key}RecipeButton`;
+      const tempTextName = `${key}RecipeButtonText`;
+      // creates buttons and text in upper right
+      window[tempName] = scene.add.rectangle(((config.scale.width * 89) / 128), ((config.scale.height * recipeHeightCoord) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(0);
+      window[tempTextName] = scene.add.text(((config.scale.width * 90) / 128), ((config.scale.height * recipeTextHeightCoord) / 128), `${key}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(0);
+    });
 
     // create purchase buttons and their text, create inventory display
     let heightCoord = 12;
@@ -74,6 +86,12 @@ export default class Main extends Phaser.GameObjects.Group {
 
     super();
 
+    Object.keys(recipeData).forEach((key) => {
+      const tempName = `${key}RecipeButton`;
+      const tempTextName = `${key}RecipeButtonText`;
+      this[`${tempName}`] = eval(tempName);
+      this[`${tempTextName}`] = eval(tempTextName);
+    });
     Object.keys(jsonData).forEach((key) => {
       const tempName = `buy${key}`;
       const tempTextName = `buy${key}Text`;

@@ -4,6 +4,7 @@ import cuisineImg from '../assets/backgrounds/italian-cuisine-2378729_1366.jpg';
 import paperImg from '../assets/backgrounds/paper-1074131_1366.jpg';
 import ovenImg from '../assets/icons/oven128.png';
 import jsonData from '../data/ingredients.json';
+import recipeData from '../data/recipes.json';
 
 export default class BootScene extends Phaser.Scene {
   constructor() {
@@ -15,6 +16,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.image('paperBackground', paperImg);
     this.load.image('ovenIcon', ovenImg);
     this.load.json('ingredientData', jsonData);
+    this.load.json('recipeData', recipeData);
   }
 
   create() {
