@@ -19,14 +19,9 @@ export default class Inventory {
     // set up inventory for holding each product from recipe list
     Object.keys(recipeData).forEach((key) => {
       this[`${key}`] = 0;
-    })
+    });
 
-    // notes on ingredient weights:
-    // a pound of flour = 3 1/2 cups (168tsp)
-    // sugar is about 96 tsp per lb --- 96 tsp = 2 cups
-    // yeast is about 160 tsp per lb
-    // salt is about 80 tsp per lb
-
+    // this list is currently unused and may be removed in the future
     this.ingredientList = [];
   }
 
