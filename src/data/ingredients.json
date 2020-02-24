@@ -1,27 +1,56 @@
 {
   "flour": {
+    "name": "flour",
     "price": 2.99,
     "amount": 840,
     "amountText": "5 lbs"
   },
   "sugar": {
+    "name": "sugar",
     "price": 2.99,
     "amount": 384,
     "amountText": "4 lbs"
   },
   "yeast": {
+    "name": "yeast",
     "price": 13.99,
     "amount": 160,
     "amountText": "lb"
   },
   "salt": {
+    "name": "salt",
     "price": 3.69,
     "amount": 240,
     "amountText": "3 lbs"
   },
   "oil": {
+    "name": "oil",
     "price": 4.59,
     "amount": 768,
     "amountText": "gallon"
+  },
+  "bakingsoda": {
+    "name": "baking soda",
+    "price": 0.89,
+    "amount": 94,
+    "amountText": "lb"
+  },
+  "banana": {
+    "name": "bananas",
+    "price": 0.25,
+    "amount": 1,
+    "amountText": "each"
+  },
+  "egg": {
+    "name": "eggs",
+    "price": 0.99,
+    "amount": 12,
+    "amountText": "dozen"
+  },
+  "vanillaextract": {
+    "name": "vanilla extract",
+    "price": 16.27,
+    "amount": 24,
+    "amountText": "4 fl oz"
   }
 }
