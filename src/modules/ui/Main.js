@@ -24,7 +24,6 @@ export default class Main extends Phaser.GameObjects.Group {
     let recipeTextHeightCoord = 18;
     // create a button for each recipe
     Object.keys(recipeData).forEach((key) => {
-      console.log(key); // breadloaf
       const tempName = `${key}RecipeButton`;
       const tempTextName = `${key}RecipeButtonText`;
       // creates buttons and text in upper right
