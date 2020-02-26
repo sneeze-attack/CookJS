@@ -16,4 +16,9 @@ Banana Muffins recipe: https://www.tasteofhome.com/recipes/basic-banana-muffins/
 oven.png made by Iconixar from Flaticon and licensed by Flaticon License
 Iconixar: https://www.flaticon.com/authors/iconixar
 Flaticon: https://www.flaticon.com
-Flaticon License: Flaticon Basic License: https://file000.flaticon.com/downloads/license/license.pdf
+Flaticon License: https://file000.flaticon.com/downloads/license/license.pdf
+
+supermarket.png made by Kiranshastry from Flaticon and licensed by Flaticon License
+Kiranshastry: https://www.flaticon.com/authors/kiranshastry
+Flaticon: https://www.flaticon.com
+Flaticon License: https://file000.flaticon.com/downloads/license/license.pdf
