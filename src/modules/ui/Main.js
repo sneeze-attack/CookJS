@@ -10,6 +10,9 @@ export default class Main extends Phaser.GameObjects.Group {
     // add background
     scene.add.image(0, 0, 'paperBackground').setOrigin(0, 0).setDepth(1);
 
+    // create shopping cart
+    const cart = scene.add.sprite(((config.scale.width * 3) / 128), ((config.scale.height * 30) / 128), 'cartIcon').setOrigin(0, 0).setInteractive().setDepth(1);
+
     // create oven
     const oven = scene.add.sprite(((config.scale.width * 3) / 128), ((config.scale.height * 4) / 128), 'ovenIcon').setOrigin(0, 0).setInteractive().setDepth(1);
 
