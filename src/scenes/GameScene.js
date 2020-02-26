@@ -24,8 +24,14 @@ export default class GameScene extends Phaser.Scene {
     function buy(ingredient, price, tsp) {
       if (game.inventory.dollars > price) {
         game.inventory.addIngredient(ingredient, tsp);
+        let cap = ingredient;
+        Object.keys(iData).forEach((key) => {
+          if (key === ingredient) {
+            cap = `${iData[key].name}`;
+          }
+        });
         // capitalize name of ingredient
-        const ingredientCapitalized = ingredient.charAt(0).toUpperCase() + ingredient.slice(1);
+        const ingredientCapitalized = cap.charAt(0).toUpperCase() + cap.slice(1);
         // add blank space to align with longest ingredient name
         let spacer = '';
         const l = ingredient.length;
