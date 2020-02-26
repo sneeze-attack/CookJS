@@ -15,9 +15,11 @@ export default class GameScene extends Phaser.Scene {
     const rData = this.cache.json.get('recipeData');
     // Get length of longest ingredient
     let longestIngredientLength = 0;
+    let leng;
     Object.keys(iData).forEach((key) => {
-      if (longestIngredientLength < key.length) {
-        longestIngredientLength = key.length;
+      leng = `${iData[key].name}`;
+      if (longestIngredientLength < leng.length) {
+        longestIngredientLength = leng.length;
       }
     });
 
@@ -34,7 +36,7 @@ export default class GameScene extends Phaser.Scene {
         const ingredientCapitalized = cap.charAt(0).toUpperCase() + cap.slice(1);
         // add blank space to align with longest ingredient name
         let spacer = '';
-        const l = ingredient.length;
+        const l = cap.length;
         if (l < longestIngredientLength) {
           for (let d = longestIngredientLength - l; d > 0; d -= 1) {
             spacer = spacer.concat(' ');
