@@ -82,12 +82,20 @@ export default class GameScene extends Phaser.Scene {
         ui[`${key}RecipeButton`].setDepth(0);
         ui[`${key}RecipeButtonText`].setDepth(0);
       });
+      Object.keys(iData).forEach((key) => {
+        ui[`buy${key}`].setDepth(0);
+        ui[`buy${key}Text`].setDepth(0);
+      });
     });
 
     ui.cart.on('pointerup', () => {
       ui.menuShadeBox.setDepth(2);
       ui.cartBoxBorder.setDepth(3);
       ui.cartBox.setDepth(3);
+      Object.keys(iData).forEach((key) => {
+        ui[`buy${key}`].setDepth(3);
+        ui[`buy${key}Text`].setDepth(3);
+      });
     });
   }
 }
