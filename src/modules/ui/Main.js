@@ -12,10 +12,13 @@ export default class Main extends Phaser.GameObjects.Group {
 
     // create shopping cart
     const cart = scene.add.sprite(((config.scale.width * 3) / 128), ((config.scale.height * 30) / 128), 'cartIcon').setOrigin(0, 0).setInteractive().setDepth(1);
+    // shopping menu
+    // add bordered results box
+    const cartBoxBorder = scene.add.rectangle(((config.scale.width * 30) / 128), ((config.scale.height * 14) / 128), ((config.scale.width * 68) / 128), ((config.scale.height * 98) / 128), 0xFFFFFF).setOrigin(0, 0).setDepth(0).setInteractive();
+    const cartBox = scene.add.rectangle(((config.scale.width * 30.25) / 128), ((config.scale.height * 14.5) / 128), ((config.scale.width * 67.5) / 128), ((config.scale.height * 97) / 128), 0x000000).setOrigin(0, 0).setDepth(0).setInteractive();
 
     // create oven
     const oven = scene.add.sprite(((config.scale.width * 3) / 128), ((config.scale.height * 4) / 128), 'ovenIcon').setOrigin(0, 0).setInteractive().setDepth(1);
-
     // oven / cooking menu
     // add gray shade to entire screen
     const menuShadeBox = scene.add.rectangle(0, 0, config.scale.width, config.scale.height, 0x000000).setOrigin(0, 0).setDepth(0).setAlpha(0.5).setInteractive();
@@ -112,8 +115,11 @@ export default class Main extends Phaser.GameObjects.Group {
     this.day = day;
     this.hour = hour;
     this.oven = oven;
+    this.cart = cart;
     this.menuShadeBox = menuShadeBox;
     this.menuBoxBorder = menuBoxBorder;
     this.menuBox = menuBox;
+    this.cartBoxBorder = cartBoxBorder;
+    this.cartBox = cartBox;
   }
 }

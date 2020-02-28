@@ -65,7 +65,7 @@ export default class GameScene extends Phaser.Scene {
     // Set up oven click functionality
     ui.oven.on('pointerup', () => {
       ui.menuShadeBox.setDepth(2);
-      ui.menuBoxBorder.setDepth(2);
+      ui.menuBoxBorder.setDepth(3);
       ui.menuBox.setDepth(3);
       Object.keys(rData).forEach((key) => {
         ui[`${key}RecipeButton`].setDepth(4);
@@ -76,10 +76,18 @@ export default class GameScene extends Phaser.Scene {
       ui.menuShadeBox.setDepth(0);
       ui.menuBoxBorder.setDepth(0);
       ui.menuBox.setDepth(0);
+      ui.cartBoxBorder.setDepth(0);
+      ui.cartBox.setDepth(0);
       Object.keys(rData).forEach((key) => {
         ui[`${key}RecipeButton`].setDepth(0);
         ui[`${key}RecipeButtonText`].setDepth(0);
       });
+    });
+
+    ui.cart.on('pointerup', () => {
+      ui.menuShadeBox.setDepth(2);
+      ui.cartBoxBorder.setDepth(3);
+      ui.cartBox.setDepth(3);
     });
   }
 }
