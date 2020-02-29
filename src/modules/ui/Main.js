@@ -23,8 +23,8 @@ export default class Main extends Phaser.GameObjects.Group {
     // add gray shade to entire screen
     const menuShadeBox = scene.add.rectangle(0, 0, config.scale.width, config.scale.height, 0x000000).setOrigin(0, 0).setDepth(0).setAlpha(0.5).setInteractive();
     // add bordered results box
-    const menuBoxBorder = scene.add.rectangle(((config.scale.width * 30) / 128), ((config.scale.height * 14) / 128), ((config.scale.width * 68) / 128), ((config.scale.height * 98) / 128), 0xFFFFFF).setOrigin(0, 0).setDepth(0).setInteractive();
-    const menuBox = scene.add.rectangle(((config.scale.width * 30.25) / 128), ((config.scale.height * 14.5) / 128), ((config.scale.width * 67.5) / 128), ((config.scale.height * 97) / 128), 0x000000).setOrigin(0, 0).setDepth(0).setInteractive();
+    const menuBoxBorder = scene.add.rectangle(((config.scale.width * 9) / 128), ((config.scale.height * 14) / 128), ((config.scale.width * 104) / 128), ((config.scale.height * 104) / 128), 0xFFFFFF).setOrigin(0, 0).setDepth(0).setInteractive();
+    const menuBox = scene.add.rectangle(((config.scale.width * 9.25) / 128), ((config.scale.height * 14.5) / 128), ((config.scale.width * 103.5) / 128), ((config.scale.height * 103) / 128), 0x000000).setOrigin(0, 0).setDepth(0).setInteractive();
     // Show available recipes
     let recipeHeightCoord = 17;
     let recipeTextHeightCoord = 18;
@@ -33,8 +33,8 @@ export default class Main extends Phaser.GameObjects.Group {
       const tempName = `${key}RecipeButton`;
       const tempTextName = `${key}RecipeButtonText`;
       // creates buttons and text in upper right
-      window[tempName] = scene.add.rectangle(((config.scale.width * 32) / 128), ((config.scale.height * recipeHeightCoord) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(0);
-      window[tempTextName] = scene.add.text(((config.scale.width * 33) / 128), ((config.scale.height * recipeTextHeightCoord) / 128), `${recipeData[key].name}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(0);
+      window[tempName] = scene.add.rectangle(((config.scale.width * 11) / 128), ((config.scale.height * recipeHeightCoord) / 128), ((config.scale.width * 23) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(0);
+      window[tempTextName] = scene.add.text(((config.scale.width * 12) / 128), ((config.scale.height * recipeTextHeightCoord) / 128), `${recipeData[key].name}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(0);
       recipeHeightCoord += 12;
       recipeTextHeightCoord += 12;
     });
