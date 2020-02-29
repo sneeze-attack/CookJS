@@ -41,7 +41,7 @@ export default class Main extends Phaser.GameObjects.Group {
 
     // create purchase buttons and their text, create inventory display
     let heightCoord = 17;
-    let textHeightCoord = 18;
+    let textHeightCoord = 17.5;
     let heldCoord = 70;
     // Get length of longest ingredient
     let longestIngredientLength = 0;
@@ -65,13 +65,13 @@ export default class Main extends Phaser.GameObjects.Group {
           spacer = spacer.concat(' ');
         }
       }
-      // creates purchase buttons and text in upper right
-      window[tempName] = scene.add.rectangle(((config.scale.width * 32) / 128), ((config.scale.height * heightCoord) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 8) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(0);
-      window[tempTextName] = scene.add.text(((config.scale.width * 33) / 128), ((config.scale.height * textHeightCoord) / 128), `${ingredientCapitalized} $${jsonData[key].price} / ${jsonData[key].amountText}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(0);
+      // creates purchase buttons and text in cart pop-up window
+      window[tempName] = scene.add.rectangle(((config.scale.width * 32) / 128), ((config.scale.height * heightCoord) / 128), ((config.scale.width * 38) / 128), ((config.scale.height * 6) / 128), 0xC0C0C0).setOrigin(0, 0).setInteractive().setDepth(0);
+      window[tempTextName] = scene.add.text(((config.scale.width * 33) / 128), ((config.scale.height * textHeightCoord) / 128), `${ingredientCapitalized} $${jsonData[key].price} / ${jsonData[key].amountText}`).setColor('#000000').setInteractive().setFontSize(20).setFontFamily('"DejaVu Sans Mono"').setDepth(0);
       // this creates inventory in bottom left
       window[heldName] = scene.add.text(((config.scale.width * 8) / 128), ((config.scale.height * heldCoord) / 128), `${ingredientCapitalized}:${spacer} ${game.inventory.convert(`${game.inventory[key]}`)}`).setColor('#000000').setInteractive().setFontSize(28).setFontFamily('"DejaVu Sans Mono"').setDepth(1);
-      heightCoord += 12;
-      textHeightCoord += 12;
+      heightCoord += 9;
+      textHeightCoord += 9;
       heldCoord += 5;
     });
 
