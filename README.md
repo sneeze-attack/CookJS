@@ -4,4 +4,4 @@ A Phaser 3 project for practice and fun. Uses [Babel 7](https://babeljs.io) and 
 
 
 ## Live Demo
-[Demo Site](http://cookjs.duckdns.org:8070)
+[Demo Site](https://aaatowing.duckdns.org/cookjs)
